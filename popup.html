@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>极简浏览器代理</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="header">
+      <div class="brand">
+        <span id="statusDot" class="status-dot"></span>
+        <div>
+          <h1>浏览器代理</h1>
+          <p id="statusText" class="status-text">读取中…</p>
+        </div>
+      </div>
+      <label class="switch" title="开启或关闭代理">
+        <input type="checkbox" id="enableSwitch" aria-label="开启或关闭代理">
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <div class="add-row">
+      <input
+        id="proxyInput"
+        type="text"
+        placeholder="PROXY 127.0.0.1:7890"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="代理地址"
+      >
+      <button id="addBtn" type="button">添加</button>
+    </div>
+
+    <p class="hint">格式：<code>PROXY IP:端口</code> 或 <code>SOCKS5 IP:端口</code></p>
+    <div id="message" class="message" role="status" aria-live="polite"></div>
+
+    <section class="list-section">
+      <div class="list-title">已保存的地址</div>
+      <div id="proxyList" class="list"></div>
+    </section>
+
+    <footer class="footer">只影响当前浏览器 · 设置保存在本机</footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
